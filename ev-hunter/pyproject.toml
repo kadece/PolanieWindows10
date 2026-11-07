@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ev-hunter"
+version = "0.1.0"
+description = "Agent wyszukujący używane, nieuszkodzone samochody elektryczne na polskich portalach ogłoszeniowych"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+ev-hunter = "ev_hunter.__main__:main"
+
+[project.optional-dependencies]
+studio = ["mistralai-agents>=1.1"]
+
+[tool.mistralai.agents]
+entrypoint = "ev_hunter.studio_agent:agent"
+
+[tool.setuptools.packages.find]
+include = ["ev_hunter*"]
