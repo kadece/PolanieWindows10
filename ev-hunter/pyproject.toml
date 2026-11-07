@@ -12,5 +12,11 @@ dependencies = []
 [project.scripts]
 ev-hunter = "ev_hunter.__main__:main"
 
+[project.optional-dependencies]
+studio = ["mistralai-agents>=1.1"]
+
+[tool.mistralai.agents]
+entrypoint = "ev_hunter.studio_agent:agent"
+
 [tool.setuptools.packages.find]
 include = ["ev_hunter*"]

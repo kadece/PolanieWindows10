@@ -69,6 +69,21 @@ cd ev-hunter
 python -m unittest discover -s tests -v
 ```
 
+
+## Agent w Mistral Studio (Vibe / AI Studio)
+
+Repo zawiera też agenta zgodnego z **Mistral Agents SDK** (`ev_hunter/studio_agent.py`), który
+opakowuje wyszukiwarkę jako narzędzie `search_ev_listings` i może być serwowany lub wdrożony
+przez Studio (`agents serve` / `agents deploy`):
+
+```bash
+pip install -e ".[studio]"
+uv run agents info        # wczytuje entrypoint z pyproject.toml: ev_hunter.studio_agent:agent
+```
+
+Agent (`name="ev-hunter"`, model `mistral-large-4-0`) odpowiada po polsku i sam wywołuje
+narzędzie z domyślnymi kryteriami (do 150 000 zł, do 5 lat, bez uszkodzeń, elektryczny).
+
 ## Uwagi prawne i etyczne
 
 - Agent pobiera wyłącznie **publicznie dostępne** strony wyników wyszukiwania, w niskim
